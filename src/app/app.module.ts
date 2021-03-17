@@ -1,17 +1,42 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
 
-import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
-import { ListPeopleComponent } from './list-people/list-people.component';
-import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ProfileComponent } from './profile/profile.component';
+import { AppComponent } from "./app.component";
+import { HelloComponent } from "./hello.component";
+import { RouterModule, Routes } from "@angular/router";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatIconModule } from "@angular/material/icon";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { NavbarComponent } from "./navbar/navbar.component";
+const routes: Routes = [
+  {
+    path: "people",
+    loadChildren: () =>
+      import("./list-people/list-people.module").then(l => l.ListPeopleModule)
+  },
+  {
+    path: "profile",
+    loadChildren: () =>
+      import("./profile/profile.module").then(p => p.ProfileModule)
+  },
+  {
+    path: "auth",
+    loadChildren: () => import("./login/login.module").then(l => l.LoginModule)
+  }
+];
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, ListPeopleComponent, LoginComponent, NavbarComponent, ProfileComponent ],
-  bootstrap:    [ AppComponent ]
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+
+    FlexLayoutModule,
+    MatIconModule
+  ],
+  declarations: [AppComponent, HelloComponent, NavbarComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,4 +1,11 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div fxLayout="row">
+
+	<div fxFlex="24">
+		<!-- <router-outlet name="navbar"></router-outlet> -->
+		<app-navbar></app-navbar>
+	</div>
+
+	<div fxFlex>
+		<router-outlet></router-outlet>
+	</div>
+</div>
