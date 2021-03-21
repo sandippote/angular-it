@@ -14,7 +14,6 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatListModule } from "@angular/material/list";
 import { MatButtonModule } from "@angular/material/button";
 import { SettingComponent } from "./setting/setting.component";
-import { AuthGuard } from "./core/auth-guard.service";
 
 const routes: Routes = [
   {
@@ -33,12 +32,7 @@ const routes: Routes = [
   },
   {
     path: "auth",
-    loadChildren: () => import("./login/login.module").then(l => l.LoginModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: "**",
-    redirectTo: "auth"
+    loadChildren: () => import("./login/login.module").then(l => l.LoginModule)
   }
 ];
 
