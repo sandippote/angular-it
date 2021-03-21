@@ -8,7 +8,6 @@ import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatIconModule } from "@angular/material/icon";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { NavbarComponent } from "./navbar/navbar.component";
 import { MatSidenavModule } from "@angular/material/sidenav";
 
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -47,7 +46,7 @@ const routes: Routes = [
     MatListModule,
     MatButtonModule
   ],
-  declarations: [AppComponent, HelloComponent, NavbarComponent],
+  declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
