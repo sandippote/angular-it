@@ -1,6 +1,6 @@
-<!-- <ng-container *ngIf="isLogged$ | async as isLoggedIn"> -->
+<ng-container>
 
-  <div id="my-app">
+  <div id="my-app" *ngIf="isToken !== null">
     <mat-toolbar color="primary">
       <mat-toolbar-row>
         <button mat-icon-button>
@@ -29,5 +29,5 @@
     </mat-sidenav-container>
   </div>
 
-  <!-- <router-outlet *ngIf="!isLoggedIn"></router-outlet>
-</ng-container> -->
+  <router-outlet *ngIf="isToken === null"></router-outlet>
+</ng-container>

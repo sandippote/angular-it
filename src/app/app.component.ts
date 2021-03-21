@@ -8,9 +8,11 @@ import { Observable } from "rxjs/internal/Observable";
 })
 export class AppComponent implements OnInit {
   name = "Angular";
+  isToken: any;
   constructor() {}
 
   ngOnInit() {
     console.log(localStorage.getItem("token"));
+    this.isToken = localStorage.getItem("token");
   }
 }
