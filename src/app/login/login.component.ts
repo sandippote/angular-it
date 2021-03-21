@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { AuthService } from "../core/auth.service";
 import { LoginService } from "./login.service";
 
 @Component({
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private _router: Router
+    private _router: Router,
+    private _authService: AuthService
   ) {}
 
   ngOnInit() {}
@@ -37,12 +39,12 @@ export class LoginComponent implements OnInit {
       .subscribe(
         () => {
           this.authenticationError = false;
-          // if (!this.router.getCurrentNavigation()) {
-          //   this.router.navigate(['']);
-          // }
+          this._authService.loggedIn.next(true);
           this._router.navigate(["home"]);
         },
-        () => (this.authenticationError = true)
+        () => (
+          this.authenticationError = true
+        )
       );
   }
 }

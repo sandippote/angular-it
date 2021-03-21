@@ -13,7 +13,8 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatListModule } from "@angular/material/list";
 import { MatButtonModule } from "@angular/material/button";
-import { SettingComponent } from './setting/setting.component';
+import { SettingComponent } from "./setting/setting.component";
+import { AuthGuard } from "./core/auth-guard.service";
 
 const routes: Routes = [
   {
@@ -27,12 +28,13 @@ const routes: Routes = [
       import("./profile/profile.module").then(p => p.ProfileModule)
   },
   {
-    path: 'setting',
+    path: "setting",
     component: SettingComponent
   },
   {
     path: "auth",
-    loadChildren: () => import("./login/login.module").then(l => l.LoginModule)
+    loadChildren: () => import("./login/login.module").then(l => l.LoginModule),
+    canActivate: [AuthGuard]
   },
   {
     path: "**",
