@@ -4,4 +4,16 @@
     margin-top: 12px;
     color: red;
   }
+
+  mat-card {
+    border: 1px solid;
+  }
+
+  input {
+    border: 0.5px;
+    height: 28px;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 8px;
+  }
 }

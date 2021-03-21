@@ -1,34 +1,31 @@
 <div id="app-login" fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
 
   <mat-card fxFlex="50">
-    <mat-card-header>
+    <mat-card-header fxLayout="row" fxLayoutAlign="center center">
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <form fxLayout="column" role="form" [formGroup]="loginForm">
-        <mat-form-field>
-          <mat-label>Username</mat-label>
+        <div fxLayout="column">
+          <label for="username">Username</label>
           <input
-                matInput
-                type="text"
-                name="username"
-                id="username"
-                placeholder="username"
-                formControlName="email"
-              />
-        </mat-form-field>
+              type="text"
+              name="username"
+              id="username"
+              placeholder="username"
+              formControlName="email"/>
+        </div>
 
-        <mat-form-field>
-          <mat-label>Password</mat-label>
+        <div fxLayout="column">
+          <label>Password</label>
           <input
-              matInput
               type="password"
               name="password"
               id="password"
               placeholder="password"
               formControlName="password"
             />
-        </mat-form-field>
+        </div>
 
         <button (click)="login()" color="primary" mat-raised-button type="submit" class="btn btn-primary" >Sign in</button>
       </form>

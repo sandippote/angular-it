@@ -16,19 +16,19 @@ import { LOGIN_ROUTE } from "./login.route";
 
 @NgModule({
   imports: [
-    CommonModule,
-    HttpClientModule,
-    RouterModule.forChild([LOGIN_ROUTE]),
-
-    MatCardModule,
-    MatInputModule,
-    MatButtonModule,
-    MatFormFieldModule,
-
-    FlexLayoutModule,
 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatButtonModule,
+
+    FlexLayoutModule,
+    HttpClientModule,
+    RouterModule.forChild([LOGIN_ROUTE]),
   ],
   declarations: [LoginComponent]
 })
