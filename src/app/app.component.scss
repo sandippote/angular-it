@@ -4,6 +4,28 @@
 
 #my-app {
   mat-toolbar {
-    background-color: #a9a9a9;
+    background-color: #3f51b5;
+  }
+
+  mat-sidenav-container {
+    mat-sidenav {
+      width: 240px;
+      height: 100vh;
+      overflow: auto;
+
+      mat-nav-list {
+        a:hover {
+          background-color: lightgray;
+        }
+      }
+    }
+
+    mat-sidenav-content {
+      div {
+        padding: 16px;
+      }
+    }
+
+
   }
 }
