@@ -1,6 +1,6 @@
 <ng-container>
 
-  <div id="my-app" *ngIf="isToken !== null">
+  <div id="my-app" *ngIf="isLoggedIn">
     <mat-toolbar color="primary">
       <mat-toolbar-row>
         <button mat-icon-button>
@@ -18,16 +18,16 @@
           <a mat-list-item routerLink="people"> People </a>
           <a mat-list-item routerLink="profile"> Profile </a>
           <a mat-list-item routerLink="setting"> Setting </a>
-          <a mat-list-item routerLink="auth"> Logout </a>
+          <a mat-list-item (click)="logout()"> Logout </a>
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>
         <div style="height: 88vh;">
-          <router-outlet></router-outlet>
+          <router-outlet *ngIf="isLoggedIn"></router-outlet>
         </div>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>
 
-  <router-outlet *ngIf="isToken === null"></router-outlet>
+  <router-outlet *ngIf="!isLoggedIn"></router-outlet>
 </ng-container>

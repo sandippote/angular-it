@@ -35,9 +35,11 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.get("password")!.value
       })
       .subscribe(
-        () => {
+        (res) => {
           this.authenticationError = false;
-          this._router.navigate(["home"]);
+          // localStorage.setItem('token', res.token);
+          this.loginService.isLoggin$.next(true);
+          this._router.navigate(["profile"]);
         },
         () => (this.authenticationError = true)
       );

@@ -1,14 +1,14 @@
 <div id="app-login" fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
 
-	<mat-card fxFlex="50">
-		<mat-card-header>
-			<mat-card-title>Login</mat-card-title>
-		</mat-card-header>
-		<mat-card-content>
-			<form fxLayout="column" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
-				<mat-form-field>
-					<mat-label>Username</mat-label>
-					<input
+  <mat-card fxFlex="50">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form fxLayout="column" role="form" [formGroup]="loginForm">
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input
                 matInput
                 type="text"
                 name="username"
@@ -19,9 +19,9 @@
               />
         </mat-form-field>
 
-					<mat-form-field>
-						<mat-label>Password</mat-label>
-						<input
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
               matInput
               type="password"
               name="password"
@@ -31,11 +31,11 @@
             />
         </mat-form-field>
 
-						<button color="primary" mat-raised-button type="submit" class="btn btn-primary" >Sign in</button>
-			</form>
-			<div *ngIf="authenticationError" class="error">
-				<strong>Failed to sign in!</strong> Please check your credentials and try again.
-			</div>
-		</mat-card-content>
-	</mat-card>
+        <button (click)="login()" color="primary" mat-raised-button type="submit" class="btn btn-primary" >Sign in</button>
+      </form>
+      <div *ngIf="authenticationError" class="error">
+        <strong>Failed to sign in!</strong> Please check your credentials and try again.
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

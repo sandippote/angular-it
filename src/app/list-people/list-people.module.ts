@@ -26,7 +26,6 @@ import { ListPeopleService } from "./list-people.service";
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [ListPeopleComponent],
-  providers: [ListPeopleService]
+  declarations: [ListPeopleComponent]
 })
 export class ListPeopleModule {}

@@ -27,7 +27,6 @@ import { LoginService } from "./login.service";
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginComponent],
-  providers: [LoginService]
+  declarations: [LoginComponent]
 })
 export class LoginModule {}

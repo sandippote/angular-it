@@ -14,6 +14,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatListModule } from "@angular/material/list";
 import { MatButtonModule } from "@angular/material/button";
 import { SettingComponent } from "./setting/setting.component";
+import { HttpClientModule } from "@angular/common/http";
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: "auth",
     loadChildren: () => import("./login/login.module").then(l => l.LoginModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'auth'
   }
 ];
 
@@ -42,6 +47,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
+    HttpClientModule,
 
     FlexLayoutModule,
     MatIconModule,
