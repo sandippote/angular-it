@@ -10,10 +10,10 @@ import { MatIconModule } from "@angular/material/icon";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatSidenavModule } from "@angular/material/sidenav";
 
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatListModule} from '@angular/material/list';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatListModule } from "@angular/material/list";
 import { MatButtonModule } from "@angular/material/button";
-
+import { SettingComponent } from './setting/setting.component';
 
 const routes: Routes = [
   {
@@ -27,8 +27,16 @@ const routes: Routes = [
       import("./profile/profile.module").then(p => p.ProfileModule)
   },
   {
+    path: 'setting',
+    component: SettingComponent
+  },
+  {
     path: "auth",
     loadChildren: () => import("./login/login.module").then(l => l.LoginModule)
+  },
+  {
+    path: "**",
+    redirectTo: "auth"
   }
 ];
 
@@ -46,7 +54,7 @@ const routes: Routes = [
     MatListModule,
     MatButtonModule
   ],
-  declarations: [AppComponent, HelloComponent],
+  declarations: [AppComponent, HelloComponent, SettingComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
